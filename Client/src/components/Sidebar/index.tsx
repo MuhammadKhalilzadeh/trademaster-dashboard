@@ -52,7 +52,7 @@ const Sidebar = () => {
     <Stack
       component={"aside"}
       sx={{
-        width: 230,
+        width: "fit-content",
         minHeight: "100vh",
         gap: "40px",
         boxShadow: lightTheme.boxShadows.primary,

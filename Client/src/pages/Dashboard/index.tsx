@@ -12,6 +12,11 @@ const Dashboard = () => {
         gap: 3,
         position: "relative",
         margin: "0 auto",
+        "& > div": {
+          padding: "24px",
+          minHeight: "calc(100vh - 24px * 2)",
+          flex: 1,
+        },
       }}
     >
       <Sidebar />
