@@ -3,10 +3,12 @@ import Logo from "../../../assets/logo.svg";
 import { useState } from "react";
 import axios from "axios";
 
+const url = "http://localhost:3000/";
+
 const Register = () => {
   const [values, setValues] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
     phone: "",
     password: "",
@@ -15,11 +17,8 @@ const Register = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(
-        "https://api.example.com/register",
-        values
-      );
-      console.log("Account created successfully:", response.data);
+      const response = await axios.post(url + "users", values);
+      console.log("Account created successfully:", response);
     } catch (error) {
       console.error("Error creating account:", error);
     }
@@ -69,16 +68,16 @@ const Register = () => {
             size="small"
             placeholder="Your first name, please."
             type="text"
-            name="firstName"
-            value={values.firstName}
+            name="firstname"
+            value={values.firstname}
             onChange={handleChange}
           />
           <TextField
             size="small"
             placeholder="Your last name, please."
             type="text"
-            name="lastName"
-            value={values.lastName}
+            name="lastname"
+            value={values.lastname}
             onChange={handleChange}
           />
           <TextField

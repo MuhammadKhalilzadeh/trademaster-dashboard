@@ -2,8 +2,10 @@ import { Button, Stack, TextField } from "@mui/material";
 import Logo from "../../../assets/logo.svg";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -12,10 +14,13 @@ const Login = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "https://api.example.com/Login",
+        "http://localhost:3000/" + "users/login",
         values
       );
-      console.log("Account created successfully:", response.data);
+      if (response.status === 200) {
+        console.log("Logged in successfully:", response);
+        navigate("/");
+      }
     } catch (error) {
       console.error("Error creating account:", error);
     }
