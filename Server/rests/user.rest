@@ -1,0 +1,43 @@
+
+
+GET http://localhost:3000/users
+
+###
+
+GET http://localhost:3000/users/67153c85cc03a02a59fd9516
+
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "firstname": "John",
+  "lastname": "Doe",
+  "email": "john.doe@example.com",
+  "password": "password123",
+  "phone": "123-456-7890"
+}
+
+###
+
+PATCH http://localhost:3000/users/67153c85cc03a02a59fd9516
+Content-Type: application/json
+
+{
+  "firstname": "Jane"
+}
+
+###
+
+DELETE http://localhost:3000/users/67153c85cc03a02a59fd9516
+
+###
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "email": "john.doe@example.com",
+    "password": "password123"
+}
